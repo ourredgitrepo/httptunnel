@@ -1,0 +1,439 @@
+<html>
+<head>
+
+<title>HTTPTunnel - Tunnel Connections Through Restrictive Proxies</title>
+<meta name="description" content="HTTPTunnel is a tunneling software that can tunnel network connections through restrictive HTTP proxies over pure HTTP GET and POST requests">
+<meta name="keywords" content="HTTPTunnel, HTTP, Web, Internet, Tunnel, Proxy, Tunneling, Network, VPN, SOCKS, SOCKS4, SOCKS5, Portmapping, Portmapper, Firewall, Encryption, Security, Perl, PHP, GUI, Opensource, Freeware, Download, Server, Client">
+<link rel="shortcut icon" href="common/HTTPTunnel.ico" type="image/x-icon" />
+<link type="text/css" rel="StyleSheet" href="common/tab.css" />
+<script type="text/javascript" src="common/tabpane.js"></script>
+<script>
+	function hidePl() {
+		document.getElementById('movie').style.visibility='hidden';
+	}
+	function showPl() {
+		document.getElementById('movie').style.visibility='visible';
+	}
+</script>
+</head>
+<body style="background:ThreeDFace" class="readme">
+<a name="top"></a>
+<table id="movie" cellspacing=0 cellpadding=0 style="position:absolute; width:240; visibility:hidden; left:368;z-index:1000; border:solid #949A9C 1px"><tr><td style="font-size:1px"><a href="javascript:hidePl()"><img src="common/bar.gif" style="margin:0px;padding:0px;border:none"></a></td></tr>
+<tr><td height=180><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="240" height="180" id="3dlogo" align="middle">
+<param name="allowScriptAccess" value="sameDomain" />
+<param name="movie" value="common/3dlogo.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" /><embed src="common/3dlogo.swf" quality="high" bgcolor="#ffffff" width="240" height="180" name="3dlogo" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</object></a></tr><td></table>
+<table border=0 cellpadding=0 cellspacing=3 width=600><tr>
+	<td valign=top rowspan=2><h1>HTTPTunnel v1.2.1</h1>
+	&copy;2010 by Sebastian Weber &lt;webersebastian at yahoo.de</a>><br><br>
+	This software is licensed under the <a href="http://www.gnu.org/copyleft/gpl.html" target="_new">GNU general public license</a>
+	</td><td valign=top align=right>Powered by<a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=178782&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a></td>
+	<td width=119 valign=top rowspan=2><a href="javascript:showPl()"><img src="common/logo_s.jpg" style="position:absolute; border:none"></a></td>
+	<tr><td valign=bottom align=right><a href="http://sourceforge.net/project/showfiles.php?group_id=178782" target="_new"><img src="common/download.gif" width="88" height="31" border="0" alt="Download HTTPTunnel"/></a></td></tr>
+	</tr>
+</table><br>
+<div class="tab-pane" style="width: 600">
+   <div class="tab-page">
+      <h2 class="tab">Introduction</h2>
+		<table border=0 cellpadding=0 cellspacing=3 width=100%>
+		<tr><th>Introduction to HTTPTunnel</th></tr>
+		<tr><td>
+HTTPTunnel is a tunneling software that can tunnel network connections through
+restrictive HTTP proxies over pure HTTP "GET" and "POST" requests.
+<center><img src="common/dgram.gif" align=center></center>
+HTTPTunnel consists of two components:
+<ol>
+	<li>The client that resides behind the firewall and accepts network connections
+   on ports that will either be mapped to a specific remote target server/port
+   (portmapping) or will act as a SOCKS (v4 and v5) proxy. The SOCKS authentication source can be
+   a fixed user list, an LDAP or MySQL directory. The client is available as platform-independent Perl script or as Win32 binary.<br>&nbsp;</li>
+   <img src="common/sshot.jpg" style="float:right;margin-left:15px">
+   <li>The server that resides on the internet and accepts HTTP requests from the
+   client which will be translated and forwarded to network connections to the
+   remote servers. Two different servers are available:<br>&nbsp;
+   <ul><li>The hosted server, which is basically a PHP script that must be put on a
+   PHP enabled web server. Putting the PHP script on a webserver enables the
+   webserver to act as your HTTP tunnel server.<br>&nbsp;</li>
+   <li>The standalone server, which is available as platform-independent Perl script or as Win32 binary. This server can be used if you have a box on the internet where you can run your own programs (e.g. your box at home).</li></ul></li></ol>
+   Using the standalone server (as opposed to the hosted server) is recommended as it does not suffer from many restrictions that the webserver may impose on the PHP script, e.g. maximum script runtime (which will limit the duration of your connections), load-balanced server environments, provider policies etc.<br><br>
+   Configuration of all components is done over a web-based GUI. SOCKS proxy cascading is supported.<br>&nbsp;
+		</td></tr>
+		<tr><th>Main features of HTTPTunnel</th></tr>
+		<tr><td>
+	<ul>
+	<li>HTTPTunnel Client written in Perl for maximum portability, but also available as Win32 binary<br>&nbsp;
+	<li>HTTPTunnel Server available in two versions:<br>
+		- Standalone server (available as Perl script or Win32 binary)<br>
+		- Hosted PHP server to be used on an existing, PHP-enabled webserver<br>&nbsp;
+	<li>Configuration of all components is done over a web based GUI<br>&nbsp;
+	<li>Support of multiple simultaneous connections over one HTTPTunnel client/server<br>&nbsp;
+	<li>One HTTPTunnel server can serve multiple HTTPTunnel clients<br>&nbsp;
+	<li>SOCKS4 and SOCKS5 support<br>&nbsp;
+	<li>SOCKS cascading support<br>&nbsp;
+	<li>Multiple Security Features:<br>
+		- Strong network traffic encryption and/or compression<br>
+		- optional compression of tunnelled data<br>
+		- SOCKS and/or HTTP authentication from multiple directories<br>
+		- Intrusion Detection
+		</td></tr>
+		</table>
+	</div>
+	<div class="tab-page">
+		<h2 class="tab">Installation</h2>
+		<table border=0 cellpadding=0 cellspacing=3 width=100%>
+		<tr><td>To download the HTTPTunnel package, follow this link: <a href="http://sourceforge.net/project/showfiles.php?group_id=178782" target="_new">Download HTTPTunnel</a><br>&nbsp;</td></tr>
+		<tr><th>Requirements</th></tr>
+		<tr><td>
+		<dl><dt>HTTPTunnel Client and HTTPTunnel Standalone Server (Perl script)
+			<dd>Perl v5.8.x or above<br>
+				<a href="http://search.cpan.org/~jdhedden/threads-1.61/" target="_new">module threads</a> 1.51 or above<br>
+				optional modules:<br>
+					- for compression support: Compress::Zlib<br>
+					- for encryption support: Crypt::OpenSSL::RSA and Mcrypt<br>
+					- for LDAP authentication: Net::LDAP<br>
+					- for MySQL authentication: DBI and DBD::mysql or Net::MySQL<br>&nbsp;
+
+			<dt>HTTPTunnel Client and HTTPTunnel Standalone Server (Win32 binary)
+			<dd>Tested on WinXP - should work on any 32-bit Windows though.<br>
+				Please note: authentication from LDAP and MySQL ist disabled in the Win32 binaries.<br>&nbsp;
+
+			
+			
+			<dt>HTTPTunnel PHP Server
+			<dd>PHP enabled webserver - PHP Version 5 or above is required!<br>
+				optional PHP extensions:<br>
+					- for compression support: zlib<br>
+					- for encryption support: openssl and mcrypt<br>
+					- for LDAP authentication: ldap<br>
+					- for MySQL authentication: mysql
+		</dl>
+		If you are running a Linux system (or most UNIX systems, including Mac OS X), you probably already have an installation of perl that was packaged with it. Type perl -v at the command line to find out which version.<br>
+		<a href="http://www.activestate.com/Products/ActivePerl/" target="_new">ActivePerl</a> is currently the most popular way to get Perl for Windows.<br>
+		Unfortunately, most current perl distributions do not have the most recent threads module included. If you get a warning from HTTPTunnel about your threads version, you should upgrade your threads module. Please check the FAQ for instructions on doing this.
+		<br>&nbsp;
+		</td></tr>
+		<tr><th>Installation of HTTPTunnel Client and Server Perl Scripts</th></tr>
+		<tr><td>
+To install the HTTPTunnel client and server Perl scripts, follow the steps below:
+<ol>
+	<li>Unpack the installation package<br>
+		<span class="code">tar xzf HTTPTunnel_*.tgz</span>
+	<li>Copy the subdirectory "common" into the subdirectory "perl"<br>
+		<span class="code">cp -R common perl</span>
+	<li>Change into the "perl" subdirectory<br>
+		<span class="code">cd perl</span>
+	<li>Start httptunnel_client.pl or httptunnel_server.pl<br>
+		<span class="code">perl httptunnel_client.pl<br>
+		perl httptunnel_server.pl</span>
+	<li>Open your browser to <a href="http://localhost:1079" target="_new">http://localhost:1079</a> (for the client configuration) or <a href="http://localhost" target="_new">http://localhost</a> (for the server configuration)
+	<li>Configure the HTTPTunnel client or server to meet your system and requirements
+</ol>
+		</td></tr>
+		<tr><th>Installation of HTTPTunnel PHP Server</th></tr>
+		<tr><td>
+To install the HTTPTunnel PHP server, follow the steps below:
+<ol>
+	<li>Unpack the installation package<br>
+		<span class="code">tar xzf HTTPTunnel_*.tgz</span>
+	<li>Copy the subdirectory "common" into the subdirectory "php"<br>
+		<span class="code">cp -R common php</span>
+	<li>Copy the contents of the subdirectory "php" to a directory on your
+		webserver
+	<li>Check the file htaccess.txt if you need to rename the file to .htaccess
+	<li>Open your browser to http://&lt;yourhost>/&lt;path to>/admin.php
+	<li>Configure the HTTPTunnel PHP server to meet your system and requirements
+</ol>
+		</td></tr>
+		<tr><th>Installation of HTTPTunnel Client and Server Win32 binaries</th></tr>
+		<tr><td>
+			Double-click the installer - d'oh :-)
+		</td></tr>
+		</table>
+	</div>
+	<div class="tab-page">
+		<h2 class="tab">Usage</h2>
+		<table border=0 cellpadding=0 cellspacing=3 width=100%>
+		<tr><th>Usage of HTTPTunnel</th></tr>
+		<tr><td>
+		After you have successfully installed and set up the HTTPTunnel client and server, you can
+		test your setup by trying to establish your first tunnel connection.<br><br>
+		Start your network application and direct it either to a mapped port on the HTTPTunnel client or
+		connect over the SOCKS proxy. If your application does not support SOCKS, there are utility
+		programs that socksify, which allows adaptation of any software to connect to external
+		networks via SOCKS, e.g.:<br><br>
+<table width=90% align="center">
+<tr>
+<td style="border-bottom: solid black 1px"><b>Client</b></td>
+<td style="border-bottom: solid black 1px"><b>License</b></td>
+<td style="border-bottom: solid black 1px"><b>Platform</b></td>
+</tr>
+<tr>
+<td><a target="_new" href="http://www.freecap.ru/eng/">FreeCap</a></td>
+<td>GPL</td>
+<td>Windows</td>
+</tr>
+<tr>
+<td><a target="_new" href="http://www.proxifier.com/">Proxifier</a></td>
+<td>Shareware</td>
+<td>Windows</td>
+</tr>
+<tr>
+<td><a target="_new" href="http://soft.softoogle.com/ap/sockscap-download-5157.shtml">SocksCap</a></td>
+<td>Non-Commercial home use</td>
+<td>Windows</td>
+</tr>
+<tr>
+<td><a target="_new" href="http://tsocks.sourceforge.net/about.php">tsocks</a></td>
+<td>GPL</td>
+<td>POSIX (source)</td>
+</tr>
+<tr>
+<td><a target="_new" href="http://www.netconceal.com/k.php">NetConceal Anonymizer</a></td>
+<td>Shareware</td>
+<td>Windows</td>
+</tr>
+</table>
+<br>
+If your connection is successful - Congratulations, you set up your HTTPTunnel successfully.
+If not, check below under troubleshooting.<br>&nbsp;
+		</td></tr>
+		<tr><th>Troubleshooting</th></tr>
+		<tr><td>
+		If you're having problems, do the following:
+		<ol>
+		<li>Recheck your setup (HTTPTunnel client, HTTPTunnel server and - if applicable - your socksifier).
+		<li>check the client and server log for errors or start the client with the --debug option (see below).
+		<li>Check the FAQ.
+		<li>Increase the loglevel.
+		<li>As a last resort, <a href="http://sourceforge.net/tracker/?func=add&group_id=178782&atid=886519" target="_new">file a bugreport</a> at the project homepage or <a href="http://sourceforge.net/forum/?group_id=178782" target="_new">get support in the forum</a> (see Feedback).
+		</ol>
+		</td></tr>
+		<tr><th>Usage and Command Line Options</th></tr>
+		<tr><td>
+		Usage:<br>
+		<span class="code">httptunnel_* [--debug] [--&lt;varname>=&lt;value> ...] [&lt;configfilename>]</span>
+		<dl><dt><b>--debug</b>
+			<dd>Will cause all logging to be written to the logfile <u>and</u> the screen (n/a for Win32 binary)
+			<dt><b>--&lt;varname>=&lt;value></b>
+			<dd>Overrides settings in the configuration file
+			<dt><b>&lt;configfilename></b>
+			<dd>The program will use the given &lt;filename> as configuration file
+		</dl>
+		</td></tr>
+		</table>
+	</div>
+	<div class="tab-page">
+		<h2 class="tab">FAQ</h2>
+		<table border=0 cellpadding=0 cellspacing=3 width=100%>
+		<tr><th>Frequently Asked Questions</th></tr>
+		<tr><td>
+The FAQ section is constantly growing - depending on what kind of feedback
+and questions I get from people using HTTPTunnel.
+<blockquote>
+<dl>
+<dt>Troubleshooting<dd>
+	<a href="#faq1">My tunnel setup does not work - what can I do to find out the reason?</a><br>
+	<a href="#faq7">I get a warning about my threads version - what can I do?</a>
+<dt>Issues with the PHP Server<dd>
+	<a href="#faq3">The PHP Server does not work - I see traffic coming in, but no traffic being sent.</a><br>
+	<a href="#faq4">Even after checking the "Support load balanced servers" option the PHP server does not work.</a><br>
+	<a href="#faq5">Authentication does not work with the PHP Server</a>
+<dt>Inside HTTPTunnel<dd>
+	<a href="#faq6">Can you provide some details on the HTTPTunnel protocol?</a><br>
+	<a href="#faq2">How exactly does HTTPTunnel encrypt network traffic?</a>
+<dt>General Questions<dd>
+	<a href="#faq8">Where can I find the source for the Win32 binaries?</a><br>
+</dl>
+</blockquote>
+</td></tr>
+<tr><th class="th1">Troubleshooting</th></tr>
+<tr><td>
+<p><span style="float:right"><a href="#top">Back to Top</a></span><a name="faq1"><em>My tunnel setup does not work - what can I do to find out the reason?</em></a>
+<p>
+The most obvious setup errors are discovered by just checking the HTTPTunnel client or server log.
+If the log does not provide sufficient information, you should start a systematic troubleshooting
+going through your whole chain of proxies:
+<ol><li>Can your application connect to the HTTPTunnel Client? If not, the following could be the reason:
+<ul><li>Does your application connect to the correct port on the HTTPTunnel client? 
+	<li>Is this port configured as portmapping or SOCKS port in the client config?
+	<li>Did you turn on SOCKS authentication and is your application authenticating correctly?
+	<li>Did you turn on "Limit access to IPs" but did not include the IP of the box your network app is running on?
+</ul>
+	<li>Can your HTTPTunnel client connect to the HTTPTunnel server? If not, the following could be the reason:
+<ul><li>Check your proxy server name, port and authentication
+	<li>Does your proxy support basic or NTLM authentication? If it only supports NTLM, you need an additional proxy to translate basic to NTLM authentication - e.g. <a href="http://sourceforge.net/projects/ntlmaps/" target="_new">NTLM Authorization Proxy Server</a>
+	<li>Check your HTTPTunnel server name and port - the server name MUST be a publicly available name on the internet - NOT a private address on your home network. This means, if you're using your dial-up box at home you need to specify the internet address your provider assigns to you, not the address on your local network (e.g. NOT 192.168.x.x). For dial-up boxes, it also helps to register with a <a href="http://www.dyndns.com" target="_new">free dynamic DNS service</a>. Please note, that if your HTTPTunnel server resides on a private network, you need to set up your router to forward incoming traffic on the HTTPTunnel server port to the correct box (the one that the HTTPTunnel server is actually running on).
+	<li>Is your box at home connected to the internet at all? It might be, that your provider disconnected your box because of network inactivity. If this happens, you should turn on the internet keep-alive on the HTTPTunnel server.
+	<li>Check, if you can access the HTTPTunnel server admin interface from your HTTPTunnel client box with your browser. If yes, your client should also be able to access the server.
+	<li>Did you turn on HTTP authentication on the server, and is your client authenticating correctly?
+	<li>Did you turn on "Limit access to IPs"? If yes, please note, that you MUST include the IP of the public interface of your HTTP proxy - not the IP of your HTTPTunnel client. If you don't know the address and you need the enhanced security, please leave the field blank, connect to the server, check the server log to see what your IP was and include this IP into the field.
+</ul>
+	<li>Can your HTTPTunnel server access the remote server? If not, this should be stated in the HTTPTunnel client log.
+</ol>
+<hr>
+<p><span style="float:right"><a href="#top">Back to Top</a></span><a name="faq7"><em>I get a warning about my threads version - what can I do?</em></a>
+<p>You need to upgrade your threads version. This is done by downloading <a href="http://search.cpan.org/~jdhedden/threads-1.61/" target="_new">the most recent version from CPAN</a> and installing it. Unfortunately, for installation to work, you need a working C-compiler on your system. On most UNIX systems this is not an issue, but on other systems like Microsoft Windows it is. This is why a <a href="support/threads1.61_preinst_w32_ActivePerl.zip">pre-compiled version of the threads module 1.61 for win32 and ActivePerl</a> is included into the distribution package. Just unpack the zip file into your ActivePerl installation directory, overwriting existing files if necessary. Afterwards you should not get the warning about your threads version anymore.<br>
+Other pre-compiled versions for systems without a C-compiler installed by default are welcome and will be included into the HTTPTunnel distribution.
+<br>&nbsp;
+</td></tr>
+<tr><th class="th1">Issues with the PHP server</th></tr>
+<tr><td>
+<p><span style="float:right"><a href="#top">Back to Top</a></span><a name="faq3"><em>The PHP Server does not work - I see traffic coming in, but no traffic
+being sent.</em></a>
+<p>This is often a problem related to load-balanced web servers. Many webspace
+providers distribute HTTP requests to a single address evenly among multiple
+servers.<br>
+Solution: Check the "Support load balanced servers" option in the server
+configuration. This will make the PHP script try to cope with a load
+balanced server environment.
+<hr>
+<p><span style="float:right"><a href="#top">Back to Top</a></span><a name="faq4"><em>Even after checking the "Support load balanced servers" option the PHP server does not work.</em></a>
+<p>Then you're out of luck. Some webspace providers who use load balancing
+do not allow their servers to communicate with each other. This, however, is
+a prerequisite for the PHP server to work. Try if you can find a different
+webspace provider.
+<hr>
+<p><span style="float:right"><a href="#top">Back to Top</a></span><a name="faq5"><em>Authentication does not work with the PHP Server</em></a>
+<p>For authentication to work, one of the following has to be true:
+<ul><li>either PHP is running as a server module, not as CGI binary.
+	<li>or mod_rewrite is installed and enabled on the webserver and the use of .htaccess files is permitted. If this is true, rename the supplied htaccess.txt file to .htaccess in the HTTPTunnel PHP directory. This .htaccess file will do the trick and store the HTTP username and password in an environment variable even if PHP is running as a CGI binary.
+</ul>
+If neither of the above if true, HTTPTunnel native authentication will not work!
+As a workaround you can use the web server authentication. For this, you need to follow the steps below:
+<ol><li>Turn off all authentication in the HTTPTunnel PHP server config by leaving the username for the admin interface blank and setting HTTP Authentication Method to "none". 
+	<li>Delete the supplied .htaccess file.
+	<li>Create two new files, .htaccess and .htpasswd, with the following contents (content in brackets [...] should be replaced by your own information).<br>
+	<b>.htaccess</b>:<br>
+	<span class="code">AuthType Basic<br>
+	AuthName "[Password Protected Area]"<br> 
+	AuthUserFile [/path/to/].htpasswd<br>
+	require user [Username]</span><br><br>
+	 <b>.htpasswd</b>:<br>
+	<span class="code">[Username]:[EncryptedPassword]</span><br><br>
+	To encrypt the plaintext password, you can use <a href="http://ihre-webhosting-domain.de/php/md5enc.php" target="_new">this page</a>.
+	<li>Set all authentication in the HTTPTunnel client to use your specified username and password.
+</ol>		
+</td></tr>
+<tr><th class="th1">Inside HTTPTunnel</th></tr>
+<tr><td>
+<p><span style="float:right"><a href="#top">Back to Top</a></span><a name="faq6"><em>Can you provide some details on the HTTPTunnel protocol?</em></a>
+<p>The HTTPTunnel client listens on configured network ports for incoming client connections. Each new client connection triggers the following sequence of actions. The HTTPTunnel client and server will be referred to as the "httpclient" and "httpserver" - the network client and server will be referred to as the "client" and "server":
+		<center><img src="common/dgram2.gif" align=center></center>
+		<ol>
+		<li>If the port the client connected to, is the httpclient SOCKS port, a SOCKS handshake will be performed, thereby acquiring the server IP and port number and - if applicable - authenticating the client.<br>&nbsp;
+		<li>The httpclient will open a main HTTP connection to the httpserver (using a proxy if applicable) via a HTTP GET request. This connection will stay open as long as the client or server does not close the connection.<br>&nbsp;
+		<li>The httpserver will connect to the server and acknowlegde the connection to the httpclient if successful.<br>&nbsp;
+		<li>From now on, any incoming data from the server will be forwarded by the httpserver to the httpclient over the main HTTP connection. Before sending the data, it will be compressed, encrypted and base64 encoded. The httpclient will base64 decode, decrypt and uncompress any data coming in from the main HTTP connection and forward it to the client.<br>&nbsp;
+		<li>Any incoming data from the client will be forwarded by the httpclient to the httpserver over new, "outbound" HTTP connections. Whenever an outbound HTTP connection is triggered (see also the httpclient advanced configration options), the data will be sent inside a HTTP POST request to the httpserver. Afterwards the connection is closed again. Just like incoming data, outbound data is compressed, encrypted and base64 encoded before being sent. Unlike the main HTTP connection which is established one per tunneled connection, outbound HTTP connections are established whenever needed and can even transmit data packages belonging to different tunneled connections within one request.<br>
+		After receiving an outbound HTTP request, the httpserver will base64 decode, decrypt and uncompress the POSTed data. Afterwards it will distribute and forward the data to the correct server(s).<br>&nbsp;
+		<li>The main HTTP tunnel connection is disconnected if either the server or client closes the network connection.
+		</ol>
+<hr>
+<p><span style="float:right"><a href="#top">Back to Top</a></span><a name="faq2"><em>How exactly does HTTPTunnel encrypt network traffic?</em></a>
+<p>The network traffic is encrypted using a symmetric stream cipher (RC4) with a key length of 2048 bit.<br>
+The symmetric key itself is encrypted using RSA public key encryption with a key length of 1024 bit and secure padding.<br>&nbsp;
+		</td></tr>
+<tr><th class="th1">General Questions</th></tr>
+<tr><td>
+<p><span style="float:right"><a href="#top">Back to Top</a></span><a name="faq8"><em>Where can I find the source for the Win32 binaries?</em></a>
+<p>The perl scripts are the source. The windows binaries are compiled from the perl scripts using <a href="http://search.cpan.org/~smueller/PAR-Packer-0.975/lib/pp.pm" target="_new">Par Packager</a> by Steffen M&uuml;ller. Only a few lines of code were added to the original scripts to show the Tray Icon. If anybody is interested in these lines, I will happily provide them on request.
+</td></tr>
+</table>
+	</div>
+	<div class="tab-page">
+		<h2 class="tab">Feedback</h2>
+		<table border=0 cellpadding=0 cellspacing=3 width=100%>
+		<tr><th>Feedback, Feature Requests, Bug Reporting etc.</th></tr>
+		<tr><td>Any kind of feedback is appreciated. I'm interessted in bug reports but also success stories.
+		As the HTTPTunnel project is hosted by Sourceforge.net, all feedback mechanisms are provided by them:<br>
+
+		<ul>
+		<li><a href="http://sourceforge.net/tracker/?func=add&group_id=178782&atid=886519" target="_new">
+		Submit a Bug Report</a><br>&nbsp;
+		<li><a href="http://sourceforge.net/tracker/?func=add&group_id=178782&atid=886522" target="_new">
+		Submit a Feature Request</a><br>&nbsp;
+		<li><a href="http://sourceforge.net/forum/?group_id=178782" target="_new">
+		View and participate in the HTTPTunnel forums</a><br>&nbsp;
+		<li><script>document.write('<a href="mailto:'+'weberse');
+					document.write('bastian'+'@'+'yahoo');
+					document.write('.de">');</script>Contact the author directly</a>
+		</ul>
+		</td></tr>
+		</table>
+	</div>
+	<div class="tab-page">
+		<h2 class="tab">Release Notes</h2>
+		<table border=0 cellpadding=0 cellspacing=3 width=100%>
+		<tr><th>Known Bugs / Limitations</th></tr>
+		<tr><td>
+		<ul>
+		<li>PHP Server: at rare occasions, the PHP server seems to buffer too much data coming in from the tunnel client - especially if the connection to the remote server is slow.
+		</ul>
+		</td></tr>
+		<tr><th>HTTPTunnel Release Notes</th></tr>
+		<tr><td>
+<pre>
+<hr>f	Bug fixed
+c	Change of existing functionality
++ 	Added new functionality
+- 	Removed functionality<hr>
+*1.2.1* 22.09.2010 Sebastian Weber
++   Client and server now available as Win32 binary (with shiny tray icons)
+f   Perl: Fixed a bug with Base64 padding (thanks to hondza)
+f   Perl Server: Fixed a bug in the tunnel servers main loop (thanks to Ron Harding)
+f   PHP: Fixed a bug with the UNIX socket names
+
+*1.2* 16.05.2007 Sebastian Weber
+c   Introduced config save workaround for PHP if cfg.php is not writeable
+c   Performance enhancements sending outbound traffic by
+    - increased IO buffering
+    - connection keepalive
++   New option to disallow unencrypted connections on the server
+f   Got rid of "connection refused" messages at the end of connections
+c   Admin Interface will now redirect to /admin.tpl if no path is given
+f   Fixed problems with restart after config change (module threads 1.51 or
+    higher is required for this!)
+
+*1.1* 02.01.2007 Sebastian Weber
+f   Fixed buggy logfile rotation in PHP
++   New DNS name resolution options
++   SOCKS BIND support
++   Encryption support
++   Intrusion detection
+c   Client fallback for compression or encryption if server has no support
+c   New connection handshake - v1.1 client will not work with v1.0 server
+    and vice versa!
+
+*1.0 final* 27.12.2006 Sebastian Weber
++   Input validation in admin web interfaces
++   Client, Perlserver: the server sockets can be configured to listen on a
+    specific interface
+c   Client, Perlserver: now handles most startup errors gracefully
+f   Client: fixed a bug related to UDP package tunneling
+
+*1.0 RC3* 27.10.2006 Sebastian Weber
+f   PHPserver - Output buffering was not turned off correctly.
+    Caused the PHP script not to work if buffering was turned on in php.ini
+f   Perlserver, PHPserver - Remote IP was not returned correctly.
+    Caused errors when the tunnel client could not resolve destination address
+
+*1.0 RC2* 21.10.2006 Sebastian Weber
++   Perl: Logfile cycling with zip and cleanup
++   Limit access to tunnel client/server by IP/netmask
+f   Perl: got rid of perl -w warnings
+c   Perl: Code cleaned up, moved to library
++   New functionality to view the logfile over the web admin interface
++   Perl: config parameter override through command line parameters
+    (--varname=value)
+f   Multiple Bugfixes
+
+*1.0 RC1* 11.10.2006 Sebastian Weber
++   Initial release
+</pre>
+	</td></tr>
+		</table>
+	</div>
+</div>
+<script>setupAllTabs();</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+#####################################################################
+# .htaccess file for enabling authentication if PHP is running as a 
+# CGI binary
+#####################################################################
+#
+# Please rename this file from htaccess.txt to .htaccess if the
+# following statements are true:
+# - PHP is running as CGI binary, not as a server module
+# - mod_rewrite is installed and enabled on the webserver
+# - the use of .htaccess files is permitted.
+#
+# This .htaccess file will do the trick and make authentication work
+# by storing the HTTP username and password in an environment
+# variable even if PHP is running as a CGI binary. 
+#
+# In case you're experiencing problems after renaming the file (e.g.
+# Internal Server Errors), delete this file and refer to the
+# HTTPTunnel FAQ for a workaround to making authentication work.
+
+RewriteEngine on
+RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
